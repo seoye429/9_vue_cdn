@@ -4,20 +4,45 @@
   <title>My first Vue page</title>
 </head>
 <body>
-
+<style>
+  #app{
+    border:deshed 1px;
+    width:100%;
+    padding:0 20px 20ox 20px;
+  }
+  #app>div{
+    width:80%;
+    height:60px;
+    background-color:lightgreen;
+    padding:20px;
+    font-weight:bold;
+    
+</style>
+  
   <div id="app">
-    {{ message }}
+    <p>아래에 박스를 마우스로 클릭해 보세요</p>
+    <div v-on:click="changeText">
+      {{text}}
+    </div>
+      
   </div>
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  
 
   <script>
     const app = Vue.createApp({
       data() {
         return {
-          message: "Hello World!"
+          text: ''
+        }
+      },
+      methods:{
+        changeText(){
+          this.text='hello world!'
         }
       }
+        
     })
 
    app.mount('#app')
